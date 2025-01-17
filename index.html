@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محاسبه عدد شانس</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f3f3f3;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .results {
+            margin-top: 20px;
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>محاسبه عدد شانس</h1>
+    <form method="post">
+        <label for="name">نام خود را وارد کنید:</label><br>
+        <input type="text" id="name" name="name" placeholder="نام خود را وارد کنید..." required><br>
+        <button type="submit">محاسبه</button>
+    </form>
+    {% if result %}
+    <div class="results">
+        <h2>نتایج:</h2>
+        <p>نام: {{ result.name }}</p>
+        <p>عدد شانس کامل: {{ result.total_value }}</p>
+        <p>عدد شانس تقلیل‌یافته: {{ result.reduced_value }}</p>
+        <p>روز شانس: {{ result.lucky_day }}</p>
+        <p>رنگ بخت: {{ result.lucky_color }}</p>
+    </div>
+    {% endif %}
+</body>
+</html>
